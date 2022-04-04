@@ -82,10 +82,14 @@ const questions = [
           }
         }
     }
-];
+]
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    console.log("Write to file");
+    console.log(fileName);
+    console.log(data);
+}
 
 // TODO: Create a function to initialize app
 function init() {
@@ -93,7 +97,11 @@ function init() {
         .prompt(questions)
         .then((data) => {
             console.log(data);
-            generateMarkdown(data);
+            return generateMarkdown(data);
+        })
+        .then((markdown) => {
+             console.log(markdown);
+             return writeToFile('README.md', markdown)
         })
 }
 

@@ -14,6 +14,10 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
     console.log("generateMarkdown");
     console.log(data);
+
+    return `
+    returned from generateMarkdown
+    `
 }
 
 module.exports = generateMarkdown;
