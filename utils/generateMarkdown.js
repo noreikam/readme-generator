@@ -12,8 +12,39 @@ function renderLicenseSection(license) {}
 
 // function to build table of contents
 function renderTableOfContents(data) {
+    // convert data object to array
+    const dataArr = Object.entries(data);
+    console.log("dataArr:")
+    console.log(dataArr);
+    // create new array for table of contents, start with Description since it is required
+    const contentsArr = ['Description']
+    // check which optional values were provided and push to the array
+    // start at index 2, 0 is title and 1 is description
+    for(i=2; i<dataArr.length; i++) {
+        if (dataArr[i][1] != '') {
+            contentsArr.push(dataArr[i][0]);
+        }
+    }
+    console.log(contentsArr);
+
+    // map key names to regular English for display
+    for(i=0; i< contentsArr.length; i++) {
+        if(contentsArr[i] === 'installation') {
+            contentsArr[i] = 'Installation';
+        }
+        if(contentsArr[i] === 'usageInfo') {
+            contentsArr[i] = 'Usage Information';
+        }
+        if(contentsArr[i] === 'contribute') {
+            contentsArr[i] = 'How to Contribute';
+        }
+        if(contentsArr[i] === 'testInstr') {
+            contentsArr[i] = 'Instructions for Testing';
+        }
+    }
+
     return `
-Table of contents
+${contentsArr.join('<br>')}
 `
 }
 
