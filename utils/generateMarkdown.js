@@ -1,6 +1,28 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+    // array to map license value to badge markdown
+    const licenseArr = [
+        {value: 'apache', badge: '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'},
+        {value: 'gnu', badge: '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'},
+        {value: 'mit', badge: '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'},
+        {value: 'bsd2', badge: '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)'},
+        {value: 'bsd3', badge: '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'},
+        {value: 'boost', badge: '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)'}
+      ];
+
+      let licenseBadge = '';
+
+      for(i=0; i<licenseArr.length; i++) {
+          if(licenseArr[i].value === license) {
+              licenseBadge = licenseArr[i].badge;
+          }
+      }
+
+      return `${licenseBadge}
+      `
+
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -31,7 +53,6 @@ function renderLicenseSection(license) {
             licenseName = licenseArr[i].name;
           }
       }
-      console.log(licenseName);
 
       return`
 ## License
@@ -44,8 +65,6 @@ This project is covered by the ${licenseName} license
 function renderTableOfContents(data) {
     // convert data object to array
     const dataArr = Object.entries(data);
-    console.log("dataArr:")
-    console.log(dataArr);
     // create new array for table of contents, start with Description since it is required
     const contentsArr = ['Description']
     // check which optional values were provided and push to the array
@@ -55,7 +74,6 @@ function renderTableOfContents(data) {
             contentsArr.push(dataArr[i][0]);
         }
     }
-    console.log(contentsArr);
 
     // map key names to regular English for display
     for(i=0; i< contentsArr.length; i++) {
@@ -125,13 +143,9 @@ ${testInstr}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-    console.log("generateMarkdown");
-    console.log(data);
-
-
     return `
 # ${data.title}
-
+${renderLicenseBadge(data.license)}
 ## Table of Contents
 ${renderTableOfContents(data)}
 
