@@ -21,7 +21,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Enter a description (Required)',
+        message: 'Enter a description (Required):',
         validate: descriptionInput => {
           if (descriptionInput) {
             return true;
@@ -34,22 +34,36 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Enter installation instructions'
+        message: 'Enter installation instructions: '
     },
     {
         type: 'input',
         name: 'usageInfo',
-        message: 'Enter usage information'
+        message: 'Enter usage information: '
     },
     {
         type: 'input',
         name: 'contribute',
-        message: 'Enter contribution instructions'
+        message: 'Enter contribution instructions: '
     },
     {
         type: 'input',
         name: 'testInstr',
-        message: 'Enter test instructions'
+        message: 'Enter test instructions: '
+    },
+    {
+      type: 'list',
+      name: 'license',
+      message: 'Choose a license:',
+      choices: [
+        {name: 'Apache License 2.0', value: 'apache'},
+        {name: 'GNU General Public License v3.0', value: 'gnu'},
+        {name: 'MIT License', value: 'mit'},
+        {name: 'BSD 2-Clause Simplified License', value: 'bsd2'},
+        {name: 'BSD 3-Clause New or Revised License', value: 'bsd3'},
+        {name: 'Boost Software License 1.0', value: 'boost'},
+        {name: 'None', value: 'none'}        
+      ]      
     }
 ]
 

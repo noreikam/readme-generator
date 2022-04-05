@@ -8,7 +8,37 @@ function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+    if (license === 'none') {
+        return ''
+    }
+
+    // array to map license for display
+    const licenseArr = [
+        {name: 'Apache License 2.0', value: 'apache'},
+        {name: 'GNU General Public License v3.0', value: 'gnu'},
+        {name: 'MIT License', value: 'mit'},
+        {name: 'BSD 2-Clause Simplified License', value: 'bsd2'},
+        {name: 'BSD 3-Clause New or Revised License', value: 'bsd3'},
+        {name: 'Boost Software License 1.0', value: 'boost'},
+        {name: 'None', value: 'none'}        
+      ];
+
+      let licenseName = '';
+
+      for(i=0; i<licenseArr.length; i++) {
+          if(licenseArr[i].value === license) {
+            licenseName = licenseArr[i].name;
+          }
+      }
+      console.log(licenseName);
+
+      return`
+## License
+This project is covered by the ${licenseName} license
+`
+
+}
 
 // function to build table of contents
 function renderTableOfContents(data) {
@@ -115,6 +145,8 @@ ${renderUsageInfo(data.usageInfo)}
 ${renderContribute(data.contribute)}
 
 ${renderTestInstr(data.testInstr)}
+
+${renderLicenseSection(data.license)}
     `
 }
 

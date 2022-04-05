@@ -3,7 +3,7 @@
 
 ## Table of Contents
 
-Description<br>Installation<br>Usage Information<br>How to Contribute<br>Instructions for Testing
+Description<br>Installation<br>Usage Information<br>How to Contribute<br>Instructions for Testing<br>license
 
 
 ## Description
@@ -27,5 +27,10 @@ a
 
 ## Testing Instructions
 a
+
+
+
+## License
+This project is covered by the Apache License 2.0 license
 
     
