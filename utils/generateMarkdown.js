@@ -93,13 +93,11 @@ function renderTableOfContents(data) {
             contentsArr[i] = '[License](#license)';
         }
     }
-        
-    console.log(contentsArr);
+    
     // remove github and email and replace with questions
     contentsArr.pop();
     contentsArr.pop();
     contentsArr.push('[Questions](#questions)')
-    console.log(contentsArr);
     
     return `
 ${contentsArr.join('<br>')}
