@@ -141,6 +141,14 @@ ${testInstr}
 `
 }
 
+function renderQuestions(github, email) {
+    return `
+## Questions?
+Contact me at GitHub: ${github} or email: ${email}`
+}
+
+
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
     return `
@@ -161,6 +169,8 @@ ${renderContribute(data.contribute)}
 ${renderTestInstr(data.testInstr)}
 
 ${renderLicenseSection(data.license)}
+
+${renderQuestions(data.github, data.email)}
     `
 }
 

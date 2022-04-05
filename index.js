@@ -64,6 +64,32 @@ const questions = [
         {name: 'Boost Software License 1.0', value: 'boost'},
         {name: 'None', value: 'none'}        
       ]      
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message: 'Enter your GitHub username (required): ',
+      validate: githubInput => {
+        if (githubInput) {
+          return true;
+        } else {
+          console.log('Please enter your GitHub username!');
+          return false;
+        }
+      }
+    },
+    {      
+      type: 'input',
+      name: 'email',
+      message: 'Enter your email (required): ',
+      validate: emailInput => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log('Please enter your email!');
+          return false;
+        }
+      }
     }
 ]
 
