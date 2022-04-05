@@ -4,38 +4,38 @@
       
 ## Table of Contents
 
-Description<br>Installation<br>Usage Information<br>How to Contribute<br>Instructions for Testing<br>license<br>github<br>email
+[Description](#description)<br>[Installation](#installation)<br>[Usage Information](#usageInfo)<br>[How to Contribute](#contribute)<br>[Testing Instructions](#testInstr)<br>[License](#license)<br>[Questions](#questions)
 
 
-## Description
+## Description<a id='description'></a>
 a
 
 
-## Installation
+## Installation<a id='installation'></a>
 a
 
 
 
-## Usage Information
-f
+## Usage Information<a id='usageInfo'></a>
+a
 
 
 
-## How To Contribute
-e
+## How To Contribute<a id='contribute'></a>
+a
 
 
 
-## Testing Instructions
-s
+## Testing Instructions<a id='testInstr'></a>
+a
 
 
 
-## License
+## License<a id='license'></a>
 This project is covered by the Apache License 2.0 license
 
 
 
-## Questions?
-Contact me at GitHub: h or email: y
+## Questions?<a id='questions'></a>
+Contact me at [GitHub](https://github.com/a) or by email at <a>
     

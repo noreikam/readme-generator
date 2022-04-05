@@ -55,7 +55,7 @@ function renderLicenseSection(license) {
       }
 
       return`
-## License
+## License<a id='license'></a>
 This project is covered by the ${licenseName} license
 `
 
@@ -66,7 +66,7 @@ function renderTableOfContents(data) {
     // convert data object to array
     const dataArr = Object.entries(data);
     // create new array for table of contents, start with Description since it is required
-    const contentsArr = ['Description']
+    const contentsArr = ['[Description](#description)']
     // check which optional values were provided and push to the array
     // start at index 2, 0 is title and 1 is description
     for(i=2; i<dataArr.length; i++) {
@@ -78,19 +78,29 @@ function renderTableOfContents(data) {
     // map key names to regular English for display
     for(i=0; i< contentsArr.length; i++) {
         if(contentsArr[i] === 'installation') {
-            contentsArr[i] = 'Installation';
+            contentsArr[i] = '[Installation](#installation)';
         }
         if(contentsArr[i] === 'usageInfo') {
-            contentsArr[i] = 'Usage Information';
+            contentsArr[i] = '[Usage Information](#usageInfo)';
         }
         if(contentsArr[i] === 'contribute') {
-            contentsArr[i] = 'How to Contribute';
+            contentsArr[i] = '[How to Contribute](#contribute)';
         }
         if(contentsArr[i] === 'testInstr') {
-            contentsArr[i] = 'Instructions for Testing';
+            contentsArr[i] = '[Testing Instructions](#testInstr)';
+        }
+        if(contentsArr[i] === 'license') {
+            contentsArr[i] = '[License](#license)';
         }
     }
-
+        
+    console.log(contentsArr);
+    // remove github and email and replace with questions
+    contentsArr.pop();
+    contentsArr.pop();
+    contentsArr.push('[Questions](#questions)')
+    console.log(contentsArr);
+    
     return `
 ${contentsArr.join('<br>')}
 `
@@ -103,7 +113,7 @@ function renderInstallation(installation) {
     }
 
     return `
-## Installation
+## Installation<a id='installation'></a>
 ${installation}
 `
 }
@@ -114,7 +124,7 @@ function renderUsageInfo(usageInfo) {
     }
 
     return `
-## Usage Information
+## Usage Information<a id='usageInfo'></a>
 ${usageInfo}
 `
 }
@@ -125,7 +135,7 @@ function renderContribute(contribute) {
     }
 
     return `
-## How To Contribute
+## How To Contribute<a id='contribute'></a>
 ${contribute}
 `
 }
@@ -136,15 +146,15 @@ function renderTestInstr(testInstr) {
     }
 
     return `
-## Testing Instructions
+## Testing Instructions<a id='testInstr'></a>
 ${testInstr}
 `
 }
 
 function renderQuestions(github, email) {
     return `
-## Questions?
-Contact me at GitHub: ${github} or email: ${email}`
+## Questions?<a id='questions'></a>
+Contact me at [GitHub](https://github.com/${github}) or by email at <${email}>`
 }
 
 
@@ -157,7 +167,7 @@ ${renderLicenseBadge(data.license)}
 ## Table of Contents
 ${renderTableOfContents(data)}
 
-## Description
+## Description<a id='description'></a>
 ${data.description}
 
 ${renderInstallation(data.installation)}
