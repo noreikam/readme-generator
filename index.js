@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown.js') 
+const generateMarkdown = require('./utils/generateMarkdown.js');
+const fs = require('fs');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -33,62 +34,30 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Enter installation instructions (Required)',
-        validate: installationInput => {
-          if (installationInput) {
-            return true;
-          } else {
-            console.log('Please enter installation instructions!');
-            return false;
-          }
-        }
+        message: 'Enter installation instructions'
     },
     {
         type: 'input',
         name: 'usageInfo',
-        message: 'Enter usage information (Required)',
-        validate: usageInfoInput => {
-          if (usageInfoInput) {
-            return true;
-          } else {
-            console.log('Please enter usage information!');
-            return false;
-          }
-        }
+        message: 'Enter usage information'
     },
     {
         type: 'input',
         name: 'contribute',
-        message: 'Enter contribution instructions (Required)',
-        validate: contributeInput => {
-          if (contributeInput) {
-            return true;
-          } else {
-            console.log('Please enter contribution instructions!');
-            return false;
-          }
-        }
+        message: 'Enter contribution instructions'
     },
     {
         type: 'input',
         name: 'testInstr',
-        message: 'Enter test instructions (Required)',
-        validate: testInstrInput => {
-          if (testInstrInput) {
-            return true;
-          } else {
-            console.log('Please enter test instructions!');
-            return false;
-          }
-        }
+        message: 'Enter test instructions'
     }
 ]
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    console.log("Write to file");
-    console.log(fileName);
-    console.log(data);
+function writeToFile(fileName, markdown) {
+    fs.writeFile(fileName, markdown, function (err) {
+      if (err) throw err;
+    });
 }
 
 // TODO: Create a function to initialize app
@@ -96,12 +65,10 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            console.log(data);
             return generateMarkdown(data);
         })
         .then((markdown) => {
-             console.log(markdown);
-             return writeToFile('README.md', markdown)
+             return writeToFile('./dist/README.md', markdown);
         })
 }
 
